@@ -1,7 +1,6 @@
 String.prototype.replaceAll = function(search, replacement) {
     return this.split(search).join(replacement);
 };
-
 $(function() {
     function shuffle(array) {
         for (var n = 0; n < array.length - 1; n++) {
@@ -28,6 +27,8 @@ $(function() {
 
         var $template = $("#pwaView" + uid);
 
+        var url = page.pwaHost + "json/" + id + ".json";
+        
         Moon({
             root: $el[0],
             view: $template.html(),
@@ -38,12 +39,7 @@ $(function() {
                 if (!id) return;
 
                 
-                var url = "https://pwa.niagarafallstourism.com/json/" + id + ".json";
-
-                // dev URL
-                if (window.location.host == "nft-website.localhost") {
-                    var url = "http://pwa.localhost/json/" + id + ".json";
-                }
+                
 
                 var ads = [];
 
@@ -104,7 +100,7 @@ $(function() {
     });
 });
 
-// pseudo link formatter
+// link formatter
 $(function() {
     var $links = $("a[data-ad-href]");
     $links.each(function() {
